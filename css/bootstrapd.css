@@ -1100,12 +1100,12 @@ textarea {
   line-height: inherit;
 }
 a {
-  color: #ff944d;
+  color: #FF5722;
   text-decoration: none;
 }
 a:hover,
 a:focus {
-  color: #ff944d;
+  color: #FF5722;
   text-decoration: underline;
 }
 a:focus {
@@ -1384,7 +1384,7 @@ a.bg-primary:focus {
   background-color: #1a242f;
 }
 .bg-success {
-  background-color: #ff944d;
+  background-color: #FF5722;
 }
 a.bg-success:hover,
 a.bg-success:focus {
@@ -2371,7 +2371,7 @@ table th[class*="col-"] {
 .table > thead > tr.success > th,
 .table > tbody > tr.success > th,
 .table > tfoot > tr.success > th {
-  background-color: #ff944d;
+  background-color: #FF5722;
 }
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
@@ -2836,7 +2836,7 @@ select[multiple].input-lg {
 .has-success .input-group-addon {
   color: #ffffff;
   border-color: #ffffff;
-  background-color: #ff944d;
+  background-color: #FF5722;
 }
 .has-success .form-control-feedback {
   color: #ffffff;
