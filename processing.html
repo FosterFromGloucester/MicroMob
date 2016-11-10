@@ -9,13 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>MicroMob</title>
+    <title>MicroMob - Colour Processing Study</title>
 
     <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
-    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/bootstrapd2.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/freelancer.css" rel="stylesheet">
+    <link href="css/freelancerd2.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -44,7 +44,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#page-top">MicroMob</a>
+                <a class="navbar-brand" href="index.html">MicroMob</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -54,19 +54,19 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#about">About</a>
+                        <a href="#Aims">Aims</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#timeline">Timeline</a>
+                        <a href="#Design">Design</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#download">Download</a>
+                        <a href="#Implementation">Implementation</a>
                     </li>
-                    <li >
-                    <a href="design.html">Design Study</a>
+                    <li class="page-scroll" >
+                    <a href="#Results">Results</a>
                     </li>
-                    <li>
-                        <a href="processing.html">Colour Processing Study</a>
+                    <li class="page-scroll">
+                        <a href="#Links">Links</a>
                     </li>
                 </ul>
             </div>
@@ -77,116 +77,140 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <!-- <img class="img-responsive" src="img/5x.0.png" alt=""> -->
-                    <div class="intro-text">
-                        <span class="name">MicroMob</span>
-                        <hr class="star-light">
-                        <img class="img-responsive" src="img/microplateAssay.png" alt="">
-                        <span class="skills">An eHealth Mobile Application for Rapid Analysis of Microplate Assays</span>
+                <div >
+                    <div class="intro-text" style="background-image: url(img/microplateBanner.jpg); height: 400px;">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <span class="name">Colour Processing Study</span>
+                        <img src="img/BlackBanner.png" />
+                        <span class="skills">Designing an accurate colourimetric processing technique for an eHealth Microplate Reader application</span>
                     </div>
                 </div>
             </div>
-        </div>
     </header>
 
     <!-- Portfolio Grid Section -->
-    <section id="about">
+    <section id="Aims">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>About</h2>
+                    <h2>Aims</h2>
                     <hr class="star-primary">
-                    <p> Traditional laboratory microplate readers are expensive and bulky pieces of equipment that are used to analyse microplate assays. Due to the machine’s cost and size, underfunded and isolated
-                        laboratories as well as educational institutions often do not have access to these analysis tools limiting the amount and accuracy of the research they can do. Mobile applications have been
-                        developed to complement or provide preliminary analysis but unfortunately the accuracy of the applications is often inadequate and the usability of them has not yet been assessed. Assay plates,
-                        as pictured above, consist of a number of different wells similar to miniature test tubes that are used to measure the presence of a target entity. The microplate reader, also pictured above,
-                        is the tool used to analyse the assay plates and utilizes absorbance of light through the wells to determine the concentration of the target entity present. </p>
-                        <div class="btns">
-                            <a class="btn btn-secondary" href="docs/project-proposal.pdf" target="_blank"><i class="glyphicon glyphicon-download-alt"></i> </i> Project Proposal</a>
-                        </div>
+                    <p>  The aim of this research was to improve the accuracy of the colour processing module of a prototype smartphone microplate reader application developed by Bellairs et. al.
+                        <sup><a href="#fn1" id="ref1">1</a></sup> The module was required to acheive an accuracy of within 5% of the commercial microplate reader gold standard.</p>
                 </div>
-            </div>
-            <div class="row"?
-            </div>
-        </div>
-    </section>
-
-    <!-- Timeline Section -->
-    <section class="success" id="timeline">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2>Timeline</h2>
-                    <hr class="star-light">
-                </div>
-            </div>
-            <div class="row">
-                <img class="img-responsive" src="img/Gantt Chart.jpg" alt="">
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="download">
+    <section id="Design">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Download</h2>
+                    <h2>Design</h2>
                     <hr class="star-primary">
+                    <h3> Well Detection Module </h3>
+                    <p> The well detection module had previously been designed to detect circles in the image live, while the user was taking a picture of a plate. This caused performance issues as each frame
+                        needed to be processed. The new well detection module has been designed to only processes the image after it has been taken. This was done to mititgate the performance problems and therefore
+                        enhance the application. The core detection algorithm remained unchanged. </p>
+                    <br>
+                    <h3> Colour Processing Module </h3>
+                    <p>
+                        The colourimetric module is designed to have two seperate implementations so they may be compared and the most accurate be used in the final application. Both implementations convert the
+                        colour of a well into a concentration estimate. The first implementation converts the RGB pixel values to the CIELAB colour space <sup><a href="#fn2" id="ref2">2</a></sup> and
+                        this was used to calculate a saturation value for the well which is used to estime the concentration. The second implementation converts the RGB pixel values into a single greyscale
+                        intensity value for each well which is used to estimate the concentration. The principle concept behind both of the implementations is that the actual colour of the well is irrelevant.
+                        It is the saturation or intensity of the colour which indicates a high or low concentration.
+                    </p>
+                    <br>
+                    <div id="architecture">
+                        <h3>Architecture Diagram</h3>
+                        <img src="img/architecture.jpg" alt="MicroMob Architecture Diagram" style="width:410px;height:1000px;">
+                    </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-lg-offset-2 text-center">
-                <a href="#" class="btn btn-lg btn-outline">
-                    <i class="fa fa-download"></i> Download Application
-                </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="Implementation">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Implementation</h2>
+                    <hr class="star-primary">
+                        <h3> Well Detection Module </h3>
+                        <p> The  well  detection  is implemented with OpenCV  v3.1,  an Open Source image processing library<sup><a href="#fn3" id="ref3">3</a></sup>. The image is first converted to greyscale to
+                            simplify the processing by reducing the image to a single  intensity  channel. OpenCV  then  applies  a  Canny  Edge Detector to detect potential edge points in an image. OpenCV then
+                            applies the Hough Circle Transform (HCT) method to detect circles. To  simplify  the  colour  analysis  module,  we  replace  each circle’s radius with the average radius over all the
+                            detected circles.
+                        </p>
+                        <br>
+                        <h3> Colour Processing Module </h3>
+                        <p> Both implementations receive the  well locations and the average circle radius from  the  well  detection  module.  A square  area covering the  centre  of  each well is used to
+                            calculate the average RGB values for each well.
+                        </p>
+                        <br>
+                        <h4> CIELAB Implementation </h4>
+                        <p> The RGB values are converted to the CIE1931 colour space and from there they are converted to the CIELAB colour space. This is because RGB values cannot be directly converted to the
+                            CIELAB colour space. A saturation value is then calculated and used along with concentration values to define a standard curve for a row of a specific compound. This standard curve can
+                            then be used to estime the concentrations for other wells of the same compund by substituting in their saturation value.
+                        </p>
+                        <br>
+                        <h4> RGB Intensity Implementation </h4>
+                        <p> The RGB values are converted into a single intensity value for each well. This is used to define a standard curve for a row of a specific compound. This standard curve can
+                            then be used to estime the concentrations for other wells of the same compund by substituting in their intensity value.
+                        </p>
+                    </hr>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Results">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Results</h2>
+                    <hr class="star-primary">
+                    <p>
+                        The results from this research showed that the CIELAB implementation was a lot more accurate in every test than the intensity implmentation. The CIELAB implementation also proved to be
+                        more accurate than the prototype application in some tests where the prototype was more accurate in others. Overall the application acheived an average percentage error of 9,3% which is
+                        worse than the 7% acheived by the prototype. Future research could investigate a hybrid approach between the two applications to use whichever approach is more accurate in each scenario.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="Links">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2>Links & Supplementary Material</h2>
+                    <hr class="star-primary">
+                    <p id="fn1"><a href="docs/ISTAfrica_Paper_ref_164_7896_revision2.pdf" target="_blank">1. Prototype Research</a></p>
+                    <p id="fn2"><a href="https://en.wikipedia.org/wiki/Lab_color_space" target="_blank">2. CIELAB Colour Space</a></p>
+                    <p id="fn3"><a href="http://opencv.org/" target="_blank">3. OpenCV</a></p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="text-center">
-        <!-- <div class="footer-above">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col col-md-4">
-                        <h3>Location</h3>
-                        <p>3481 Melrose Place<br>Beverly Hills, CA 90210</p>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
-                        <ul class="list-inline">
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
-                    </div>
-                </div>
-            </div>
-        </div> -->
         <div class="footer-below">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Shaun Maxwell & James Foster
+                        Shaun Maxwell
                     </div>
                     <div class="col-lg-12">
                         University of Cape Town - Computer Science Department
